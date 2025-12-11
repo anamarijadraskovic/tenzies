@@ -1,7 +1,9 @@
 # Tenzies Game
 
-A simple and fast React implementation of the classic Tenzies game — optimized to score 100 in all Lighthouse categories (Performance, Accessibility, Best Practices, SEO).  
-The project uses lazy initialization, accessible focus states, and smooth UX with confetti animations on win.
+A simple and fast React implementation of the classic Tenzies game, optimized to score **100** in all Lighthouse metrics.
+This project uses lazy initialization, accessible focus states, and smooth UX with confetti animations on win.
+
+🌐 [Live site on Netlify](https://tenziesbyana.netlify.app/)
 
 ## Features
 
