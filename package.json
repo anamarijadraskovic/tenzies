@@ -9,6 +9,7 @@
     "preview": "node_modules/.bin/vite preview"
   },
   "dependencies": {
+    "nanoid": "^5.1.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
