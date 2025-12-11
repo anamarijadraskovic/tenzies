@@ -8,6 +8,7 @@ main {
 
 #root {
   min-height: 100svh;
+  padding: 1rem;
   background-color: #0b2434;
 }
 
