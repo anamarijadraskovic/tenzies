@@ -78,6 +78,10 @@ h6 {
 
 /* My reset */
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* karla-regular - latin */
 @font-face {
   font-display: swap;
