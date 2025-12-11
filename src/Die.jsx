@@ -6,7 +6,7 @@ export function Die({ value, isHeld, holdDie }) {
   };
 
   return (
-    <button className="die" style={styles} onClick={holdDie}>
+    <button type="button" className="die" style={styles} onClick={holdDie}>
       {value}
     </button>
   );

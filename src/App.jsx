@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { Die } from "./Die.jsx";
+import Confetti from "react-confetti";
 import "./app.css";
 import { nanoid } from "nanoid";
-import Confetti from "react-confetti";
+import { Die } from "./Die.jsx";
 
 export default function App() {
   const [dice, setDice] = useState(() => generateAllNewDice()); // lazy initialization
@@ -73,6 +73,7 @@ export default function App() {
       </p>
       <div className="dice-container">{diceElements}</div>
       <button
+        type="button"
         ref={mainButtonRef}
         className="roll-dice"
         onClick={handleRollDice}
