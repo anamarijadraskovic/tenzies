@@ -84,15 +84,16 @@ h6 {
   font-family: "Karla";
   font-style: normal;
   font-weight: 400;
-  src: url("src/assets/karla-v33-latin-regular.woff2") format("woff2");
+  src: url("../public/fonts/karla-v33-latin-regular.woff2") format("woff2");
 }
+
 /* karla-700 - latin */
 @font-face {
   font-display: swap;
   font-family: "Karla";
   font-style: normal;
   font-weight: 700;
-  src: url("src/assets/karla-v33-latin-700.woff2") format("woff2");
+  src: url("../public/fonts/karla-v33-latin-700.woff2") format("woff2");
 }
 
 body,
