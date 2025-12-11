@@ -7,8 +7,7 @@ main {
 }
 
 #root {
-  height: 100vh;
-  max-height: 100vh;
+  min-height: 100svh;
   background-color: #0b2434;
 }
 
