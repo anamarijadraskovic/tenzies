@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Die} from "./Die.jsx";
 import "./app.css"
 import {nanoid} from "nanoid";
@@ -6,8 +6,15 @@ import Confetti from "react-confetti"
 
 export default function App() {
     const [dice, setDice] = useState(() => generateAllNewDice()) // lazy initialization
+    const mainButtonRef = useRef(null);
 
     const isGameWon = dice.every(die => die.isHeld) && dice.every(die => die.value === dice[0].value)
+
+    useEffect(() => {
+        if(isGameWon) {
+            mainButtonRef.current.focus()
+        }
+    }, [isGameWon])
 
     function generateAllNewDice() {
         return new Array(10)
@@ -48,12 +55,15 @@ export default function App() {
             {isGameWon && (
                 <Confetti width={window.innerWidth} height={window.innerHeight} />
             )}
+            <div aria-live="polite" className="sr-only">
+                {isGameWon && <p>Congratulations! You won! Press "New Game" to start again.</p>}
+            </div>
             <h1 className="title">Tenzies</h1>
             <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
             <div className="dice-container">
                 {diceElements}
             </div>
-            <button className="roll-dice" onClick={handleRollDice}>
+            <button ref={mainButtonRef} className="roll-dice" onClick={handleRollDice}>
                 {isGameWon ? "New Game" : "Roll"}
             </button>
         </main>
