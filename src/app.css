@@ -96,7 +96,7 @@ main {
   clip: rect(0, 0, 0, 0);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 31rem) {
   main {
     padding: 2rem;
   }

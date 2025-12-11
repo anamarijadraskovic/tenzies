@@ -53,9 +53,10 @@ export default function App() {
       key={dieObj.id}
       value={dieObj.value}
       isHeld={dieObj.isHeld}
-      holdDie={() => handleHoldDie(dieObj.id)}
+      holdDie={() => handleHoldDie(dieObj.id)} // closure
     />
   ));
+
   return (
     <main>
       {isGameWon && (
