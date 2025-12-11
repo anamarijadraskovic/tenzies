@@ -7,6 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Package manager lockfiles
+package-lock.json
+
 # Node modules
 /node_modules
 
