@@ -4,7 +4,7 @@ import "./app.css"
 import {nanoid} from "nanoid";
 
 export default function App() {
-    const [dice, setDice] = useState(generateAllNewDices())
+    const [dice, setDice] = useState(() => generateAllNewDices()) // lazy initialization
 
     function generateAllNewDices() {
         return new Array(10)
