@@ -1,6 +1,7 @@
 # Tenzies Game
 
-A simple and fast React implementation of the classic Tenzies game, optimized to score **100** in all Lighthouse metrics.
+A simple and fast React implementation of the classic Tenzies game, optimized to score **100** in all Lighthouse
+metrics.
 This project uses lazy initialization, accessible focus states, and smooth UX with confetti animations on win.
 
 🌐 [Live site on Netlify](https://tenziesbyana.netlify.app/)
@@ -13,6 +14,7 @@ This project uses lazy initialization, accessible focus states, and smooth UX wi
 - Accessible focus management and screen-reader announcements
 - Unique die IDs generated with `nanoid`
 - Automatic formatting, linting, and import/CSS organization using **Biome**
+- Installable as a PWA (Add to Home Screen)
 
 ## Tools Used
 
@@ -29,3 +31,15 @@ This project uses lazy initialization, accessible focus states, and smooth UX wi
 3. Continue rolling until **all dice show the same value**.
 4. When you win, a confetti animation appears.
 5. Click **New Game** to reset the board.
+
+## 🚀 Performance
+
+Optimized for maximum efficiency, scoring a perfect **100** in all Lighthouse categories (Performance, Accessibility,
+Best Practices, and SEO).
+
+## 📸 Screenshot
+
+<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+  <img src="./src/assets/initial.png" alt="" style="width: 45%; max-width: 300px;">
+  <img src="./src/assets/game_won.png" alt="" style="width: 45%; max-width: 300px;">
+</div>
