@@ -6,6 +6,8 @@ import { Die } from "./Die.jsx";
 
 export default function App() {
   const [dice, setDice] = useState(() => generateAllNewDice()); // lazy initialization
+  const [rolls, setRolls] = useState(0);
+
   const mainButtonRef = useRef(null);
 
   const isGameWon =
@@ -35,8 +37,10 @@ export default function App() {
           die.isHeld ? die : { ...die, value: Math.ceil(Math.random() * 6) },
         ),
       );
+      setRolls((prev) => prev + 1);
     } else {
       setDice(generateAllNewDice());
+      setRolls(0);
     }
   }
 
@@ -72,6 +76,9 @@ export default function App() {
         Roll until all dice are the same. Click each die to freeze it at its
         current value between rolls.
       </p>
+      <section className="stats">
+        <span>Rolls: {rolls}</span>
+      </section>
       <div className="dice-container">{diceElements}</div>
       <button
         type="button"
