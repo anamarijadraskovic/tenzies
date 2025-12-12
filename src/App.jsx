@@ -66,7 +66,7 @@ export default function App() {
       setDice(generateAllNewDice());
       setRolls(0);
       setTime(0);
-      setTimerActive(false);
+      setTimerActive(true);
     }
   }
 
