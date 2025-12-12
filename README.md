@@ -8,12 +8,13 @@ This project uses lazy initialization, accessible focus states, and smooth UX wi
 ## Features
 
 - Tenzies gameplay with interactive, clickable dice
+- Tracks the **number of rolls** per game
+- Timer counts **seconds elapsed** during gameplay
+- Records and displays **best time** across sessions using `localStorage`
 - Lazy state initialization for improved performance
 - Confetti animation on win (`react-confetti`)
 - Accessible focus management and screen-reader announcements
-- Unique die IDs generated with `nanoid`
-- Automatic formatting, linting, and import/CSS organization using **Biome**
-- Installable as a PWA (Add to Home Screen)
+- Installable as a PWA (Progressive Web App)
 
 ## Tools Used
 
@@ -29,6 +30,7 @@ This project uses lazy initialization, accessible focus states, and smooth UX wi
 2. Click any die to **hold** its number.
 3. Continue rolling until **all dice show the same value**.
 4. When you win, a confetti animation appears.
+    - Your **time and rolls** are recorded; try to beat your best time!
 5. Click **New Game** to reset the board.
 
 ## 🚀 Performance
