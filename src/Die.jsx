@@ -25,7 +25,8 @@ export function Die({ value, isHeld, holdDie }) {
       <div className="dots">
         {Array.from({ length: 9 }, (_, idx) => (
           <span
-            key={`${value} - ${idx}`}
+            // biome-ignore lint/suspicious/noArrayIndexKey: The list is static (9 fixed dots), never reordered, and idx is stable and unique within this map.
+            key={idx}
             className={`dot ${dotPatterns[value].includes(idx) ? "filled" : ""}`}
           />
         ))}
