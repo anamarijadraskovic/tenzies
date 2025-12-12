@@ -7,6 +7,11 @@ import { Die } from "./Die.jsx";
 export default function App() {
   const [dice, setDice] = useState(() => generateAllNewDice()); // lazy initialization
   const [rolls, setRolls] = useState(0);
+  const [time, setTime] = useState(0);
+  const [bestTime, setBestTime] = useState(
+    () => parseInt(localStorage.getItem("bestTime"), 10) || 0, // lazy initialization
+  );
+  const [timerActive, setTimerActive] = useState(true);
 
   const mainButtonRef = useRef(null);
 
@@ -17,8 +22,27 @@ export default function App() {
   useEffect(() => {
     if (isGameWon) {
       mainButtonRef.current.focus();
+
+      if (bestTime === 0 || time < bestTime) {
+        setBestTime(time);
+        localStorage.setItem("bestTime", time.toString());
+      }
+
+      setTimerActive(false);
     }
-  }, [isGameWon]);
+  }, [isGameWon, time, bestTime]);
+
+  useEffect(() => {
+    let interval = null;
+
+    if (timerActive && !isGameWon) {
+      interval = setInterval(() => {
+        setTime((t) => t + 1);
+      }, 1000);
+    }
+
+    return () => clearInterval(interval);
+  }, [timerActive, isGameWon]);
 
   function generateAllNewDice() {
     return new Array(10)
@@ -41,6 +65,8 @@ export default function App() {
     } else {
       setDice(generateAllNewDice());
       setRolls(0);
+      setTime(0);
+      setTimerActive(false);
     }
   }
 
@@ -78,6 +104,8 @@ export default function App() {
       </p>
       <section className="stats">
         <span>Rolls: {rolls}</span>
+        <span>Time: {time}s</span>
+        <span>Best Time: {bestTime ? `${bestTime}s` : "-"}</span>
       </section>
       <div className="dice-container">{diceElements}</div>
       <button

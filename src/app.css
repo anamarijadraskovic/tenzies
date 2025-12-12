@@ -104,6 +104,9 @@ main {
 
 .stats {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
   justify-content: space-evenly;
   width: 100%;
   font-weight: 700;
