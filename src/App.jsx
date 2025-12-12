@@ -11,7 +11,6 @@ export default function App() {
   const [bestTime, setBestTime] = useState(
     () => parseInt(localStorage.getItem("bestTime"), 10) || 0, // lazy initialization
   );
-  const [timerActive, setTimerActive] = useState(true);
 
   const mainButtonRef = useRef(null);
 
@@ -19,30 +18,25 @@ export default function App() {
     dice.every((die) => die.isHeld) &&
     dice.every((die) => die.value === dice[0].value);
 
+  const timerActive = !isGameWon && rolls >= 0;
+
   useEffect(() => {
-    if (isGameWon) {
-      mainButtonRef.current.focus();
+    if (!isGameWon) return;
 
-      if (bestTime === 0 || time < bestTime) {
-        setBestTime(time);
-        localStorage.setItem("bestTime", time.toString());
-      }
+    mainButtonRef.current.focus();
 
-      setTimerActive(false);
+    if (bestTime === 0 || time < bestTime) {
+      setBestTime(time);
+      localStorage.setItem("bestTime", time.toString());
     }
   }, [isGameWon, time, bestTime]);
 
   useEffect(() => {
-    let interval = null;
+    if (!timerActive) return;
 
-    if (timerActive && !isGameWon) {
-      interval = setInterval(() => {
-        setTime((t) => t + 1);
-      }, 1000);
-    }
-
+    const interval = setInterval(() => setTime((t) => t + 1), 1000);
     return () => clearInterval(interval);
-  }, [timerActive, isGameWon]);
+  }, [timerActive]);
 
   function generateAllNewDice() {
     return new Array(10)
@@ -66,7 +60,6 @@ export default function App() {
       setDice(generateAllNewDice());
       setRolls(0);
       setTime(0);
-      setTimerActive(true);
     }
   }
 
